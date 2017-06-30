@@ -76,26 +76,15 @@
             android:text="GPS toggle"
             android:textAppearance="@android:style/TextAppearance.Material.Medium" />
 
-        <Switch
-            android:id="@+id/swGPS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/tvGPS"
-            android:layout_marginEnd="18dp"
-            android:layout_marginRight="18dp" />
-
         <TextView
             android:id="@+id/tvGPSList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/swGPS"
-            android:layout_marginTop="24dp"
             android:text="GPS Coordinates"
-            android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <ScrollView
             android:id="@+id/svGPSCoords"
@@ -110,6 +99,28 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
         </ScrollView>
+
+        <Button
+            android:id="@+id/bOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="46dp"
+            android:layout_marginStart="46dp"
+            android:text="On"
+            android:layout_alignBaseline="@+id/tvGPS"
+            android:layout_alignBottom="@+id/tvGPS"
+            android:layout_toRightOf="@+id/tvGPSList"
+            android:layout_toEndOf="@+id/tvGPSList" />
+
+        <Button
+            android:id="@+id/bOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/bOn"
+            android:layout_alignBottom="@+id/bOn"
+            android:layout_toEndOf="@+id/bOn"
+            android:layout_toRightOf="@+id/bOn"
+            android:text="Off" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

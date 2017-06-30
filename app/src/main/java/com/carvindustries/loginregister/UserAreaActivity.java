@@ -17,6 +17,7 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import static com.carvindustries.loginregister.R.id.bOn;
 import static com.carvindustries.loginregister.R.id.swGPS;
 
 public class UserAreaActivity extends AppCompatActivity {
@@ -85,14 +86,14 @@ public class UserAreaActivity extends AppCompatActivity {
     }
 
     private void enable_buttons() {
-        swGPS.setOnClickListener(new View.OnClickListener() {
+        bOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
                 Intent i = new Intent(getApplicationContext(), GPS_Service.class);
                 startService(i);
             }
         });
-        swGPS.setOnClickListener(new View.OnClickListener(){
+        bOff.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent i = new Intent(getApplicationContext(), GPS_Service.class);
