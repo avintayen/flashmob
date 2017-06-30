@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import static com.carvindustries.loginregister.R.id.swGPS;
 
 public class UserAreaActivity extends AppCompatActivity {
 
@@ -25,6 +30,8 @@ public class UserAreaActivity extends AppCompatActivity {
         final EditText etAge = (EditText) findViewById(R.id.etAge);
         final TextView welcomeMessage = (TextView) findViewById(R.id.tvWelcomeMsg);
         final Switch swGPS = (Switch) findViewById(R.id.swGPS);
+        final Button bOn = (Button) findViewById(R.id.bOn);
+
         ScrollView svGPSCoords = (ScrollView) findViewById(R.id.svGPSCoords);
         final BroadcastReceiver broadcastReceiver;
 
@@ -63,7 +70,7 @@ public class UserAreaActivity extends AppCompatActivity {
         return false;
     }
 
-/*
+
     Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -76,7 +83,23 @@ public class UserAreaActivity extends AppCompatActivity {
             }
         }
     }
-    */
+
+    private void enable_buttons() {
+        swGPS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(getApplicationContext(), GPS_Service.class);
+                startService(i);
+            }
+        });
+        swGPS.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(getApplicationContext(), GPS_Service.class);
+                stopService(i);
+            }
+        });
+    }
 
 /*    @Override
     protected void onResume() {
